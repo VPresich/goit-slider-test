@@ -1,0 +1,107 @@
+.ingredients-section-title {
+  max-width: 283px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 32px;
+  row-gap: 20px;
+}
+
+.ingredients-list-item {
+  position: relative;
+  flex-basis: 100%;
+  padding-top: 32px;
+  padding-bottom: 62px;
+  padding-left: 50px;
+  padding-right: 49px;
+  border-radius: 15px;
+  color: var(--secondary-color);
+}
+
+.ingredients-list-item:nth-child(4n + 1) {
+  background-color: var(--accent-color);
+}
+
+.ingredients-list-item:nth-child(even) {
+  background-color: #ffffff;
+  color: var(--primary-color);
+  outline: 1px solid var(--accent-color);
+}
+
+.ingredients-list-item:nth-child(4n - 1) {
+  background-color: #1e1823;
+}
+
+.ingredients-list-link {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #fafafa;
+  stroke: #fafafa;
+}
+
+.ingredients-list-item:nth-child(even) .ingredients-list-link {
+  border-color: #fd9222;
+  stroke: #fd9222;
+}
+
+.ingredients-list-img {
+  margin-bottom: 16px;
+}
+
+.ingredients-list-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.ingredients-list-item:nth-child(n + 5) {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredients-list-item:nth-child(n + 5) {
+    display: inline-block;
+  }
+  .ingredients-section-title {
+    max-width: 412px;
+  }
+
+  .ingredients-list {
+    row-gap: 32px;
+  }
+
+  .ingredients-list-item {
+    flex-basis: calc((100% - 64px) / 3);
+  }
+
+  .ingredients-list {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (min-width: 1168px) {
+  .ingredients-list-item {
+    flex-basis: calc((100% - 96px) / 4);
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 23px;
+    padding-right: 23px;
+  }
+
+  .ingredients-list-img {
+    margin-bottom: 32px;
+  }
+}

@@ -1,0 +1,24 @@
+/* UTILS */
+@import './utils/visually-hidden.css';
+@import './utils/variables.css';
+
+/* BASE */
+@import './base/common.css';
+@import './base/container.css';
+@import './base/section.css';
+
+/* LAYOUT */
+@import './layout/header.css';
+
+@import './layout/section-hero.css';
+@import './layout/section-benefits.css';
+@import './layout/section-ingredients.css';
+@import './layout/section-how-made.css';
+@import './layout/section-products.css';
+@import './layout/section-bestsellers.css';
+@import './layout/section-reviews.css';
+@import './layout/modal-window.css';
+
+@import './layout/slider.css';
+
+@import './layout/footer.css';

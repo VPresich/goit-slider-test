@@ -1,0 +1,123 @@
+.reviews-section-title {
+  margin-bottom: 74px;
+}
+
+.reviews-list-item:not(:first-child) {
+  display: none;
+}
+
+.reviews-list {
+  display: flex;
+  column-gap: 16px;
+  margin-bottom: 32px;
+}
+
+.reviews-list-item {
+  position: relative;
+  width: 100%;
+  padding-top: 74px;
+  padding-right: 18px;
+  padding-bottom: 42px;
+  padding-left: 18px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 15px;
+  background: var(--secondary-color);
+  box-shadow: 0px 9.05px 100px 0px rgba(17, 17, 17, 0.03);
+}
+
+.reviews-list-avatar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reviews-list-fullname {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--text-color-theme-light);
+}
+
+.reviews-list-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+.leave-review-btn {
+  display: block;
+  max-width: 185px;
+  height: 42px;
+
+  font-weight: 600;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100px;
+  border: 1px solid var(--accent-color);
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  transition: color 250ms ease-out, background-color 250ms ease-out;
+  margin-bottom: 40px;
+}
+
+.leave-review-btn:hover,
+.leave-review-btn:focus {
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .reviews-list-item:nth-child(2) {
+    display: inline-block;
+  }
+
+  .reviews-section-title {
+    margin-bottom: 90px;
+  }
+  .reviews-list {
+    margin-bottom: 50px;
+  }
+
+  .reviews-list-item {
+    width: calc((100% - 28px) / 2);
+    padding-top: 60px;
+    padding-right: 16px;
+    padding-bottom: 42px;
+    padding-left: 16px;
+  }
+
+  .reviews-list-item:not(:last-child) {
+    display: block;
+  }
+
+  .leave-review-btn {
+    display: block;
+    width: 228px;
+    font-size: 18px;
+    height: 50px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 1168px) {
+  .reviews-list-item:nth-child(n + 3) {
+    display: inline-block;
+  }
+
+  .reviews-list-item {
+    width: calc((100% - 56px) / 3);
+  }
+  .reviews-list {
+    column-gap: 28px;
+  }
+}

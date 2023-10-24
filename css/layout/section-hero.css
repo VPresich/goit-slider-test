@@ -1,0 +1,231 @@
+.hero {
+  max-width: 335px;
+  padding-top: 395px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  background: rgba(17, 17, 17, 0.4);
+  background-image: linear-gradient(
+      rgba(17, 17, 17, 0.4),
+      rgba(17, 17, 17, 0.4)
+    ),
+    url('../../images/hero/bg-mobile@1x.jpg');
+  background-size: cover;
+}
+
+.main-title {
+  max-width: 299px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.21;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+  color: var(--secondary-color);
+}
+
+.hero-bottom-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 24px;
+  column-gap: 18 px;
+}
+
+.buy-now-btn {
+  min-width: 120px;
+  height: 41px;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 28px;
+  padding-right: 28px;
+  margin-right: 14px;
+  border-radius: 100px;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  transition: background-color 250ms ease-out, color 250ms ease-out;
+}
+
+.buy-now-btn:hover,
+.buy-now-btn:focus {
+  background-color: #fcf1e0;
+  color: var(--accent-color);
+}
+
+.how-made-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 145px;
+  height: 41px;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 100px;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  transition: border-color 250ms ease-out, color 250ms ease-out;
+}
+
+.how-made-link:hover,
+.how-made-link:focus {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.scroll-down-link {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.17;
+  letter-spacing: -0.03em;
+  color: var(--secondary-color);
+  transition: color 250ms ease-out;
+}
+
+.scroll-down-link:hover,
+.scroll-down-link:focus {
+  color: var(--accent-color);
+}
+
+.scroll-down-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  transition: background-color 250ms ease-out;
+}
+
+.scroll-down-link:hover .scroll-down-icon-wrapper,
+.scroll-down-link:focus .scroll-down-icon-wrapper {
+  background-color: var(--accent-color);
+}
+
+.scroll-down-icon {
+  fill: var(--accent-color);
+  transition: fill 250ms ease-out;
+}
+
+.scroll-down-link:hover .scroll-down-icon,
+.scroll-down-link:focus .scroll-down-icon {
+  fill: #ffffff;
+}
+
+@media screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+  .section-hero {
+    background-image: linear-gradient(
+        rgba(17, 17, 17, 0.4),
+        rgba(17, 17, 17, 0.4)
+      ),
+      url('../../images/hero/bg-mobile@2x.jpg');
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    max-width: 704px;
+    padding-top: 671px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-image: linear-gradient(
+        rgba(17, 17, 17, 0.4),
+        rgba(17, 17, 17, 0.4)
+      ),
+      url('../../images/hero/bg-tablet@1x.jpg');
+  }
+
+  .main-title {
+    max-width: 484px;
+    font-size: 28px;
+    letter-spacing: -0.04em;
+  }
+
+  .buy-now-btn {
+    min-width: 145px;
+    font-weight: 600;
+    height: 45px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .how-made-link {
+    min-width: 183px;
+    font-weight: 600;
+    height: 45px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  .scroll-down-link {
+    column-gap: 14px;
+    line-height: 1.29;
+    margin-left: auto;
+  }
+
+  .scroll-down-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+  .section-hero {
+    background-image: linear-gradient(
+        rgba(17, 17, 17, 0.4),
+        rgba(17, 17, 17, 0.4)
+      ),
+      url('../../images/hero/bg-tablet@2x.jpg');
+  }
+
+  .buy-now-btn {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media screen and (min-width: 1168px) {
+  .hero {
+    max-width: 1136px;
+    padding-top: 381px;
+    background-image: linear-gradient(
+        rgba(17, 17, 17, 0.4),
+        rgba(17, 17, 17, 0.4)
+      ),
+      url('../../images/hero/bg-desktop@1x.jpg');
+  }
+  .main-title {
+    max-width: 470px;
+    letter-spacing: -0.03em;
+  }
+
+  .scroll-down-icon-wrapper {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media screen and (min-resolution: 192dpi) and (min-width: 1168px),
+  screen and (min-resolution: 2dppx) and (min-width: 1168px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 1168px) {
+  .section-hero {
+    background-image: linear-gradient(
+        rgba(17, 17, 17, 0.4),
+        rgba(17, 17, 17, 0.4)
+      ),
+      url('../../images/hero/bg-desktop@2x.jpg');
+  }
+}
