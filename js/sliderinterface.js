@@ -25,7 +25,6 @@ class SliderInterface {
     for (let i = 0; i < this.elementsList.length; i += 1) {
       const offset =
         slider.offsetSlide(i) * (this.elementsList[i].offsetWidth + 18);
-      console.log(offset, this.elementsList[i].offsetWidth);
       this.elementsList[i].style.transform = `translateX(${offset}px)`;
     }
   }
