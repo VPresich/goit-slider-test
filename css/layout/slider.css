@@ -22,7 +22,7 @@
 
 #prevBtn,
 #nextBtn {
-  display: none;
+  /* display: none; */
   min-width: 100px;
   height: 42px;
   font-weight: 600;
@@ -57,9 +57,9 @@
   color: rgba(17, 17, 17, 0.3);
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   #prevBtn,
   #nextBtn {
     display: inline-block;
   }
-}
+} */
