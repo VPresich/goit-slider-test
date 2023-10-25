@@ -2,11 +2,10 @@ import Slider from "./slider.js";
 import SliderInterface from "./sliderinterface.js";
 
 const refs = {
-  slidesList: document
-    .querySelector(".slides-container")
-    .querySelectorAll("li"),
+  sliderContainer: document.querySelector(".slides-container"),
+  slidesList: document.querySelector(".slides-container").querySelectorAll("li"),
   prevBtn: document.getElementById("prevBtn"),
-  nextBtn: document.getElementById("nextBtn"),
+  nextBtn: document.getElementById("nextBtn"),  
 };
 
 let slidesPerPage = calculateSlidesPerPage();
@@ -14,7 +13,8 @@ const sliderRef = new Slider(slidesPerPage, refs.slidesList.length);
 const sliderInterface = new SliderInterface(sliderRef,
   refs.slidesList,
   refs.prevBtn,
-  refs.nextBtn
+  refs.nextBtn,
+  refs.sliderContainer
 );
 
 window.addEventListener("resize", () => {
