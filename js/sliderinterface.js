@@ -1,16 +1,19 @@
 class SliderInterface {
 
-  static touchThreshold = 75;
+  static touchThreshold = 50;
   #sliderRef;
+  #gapSliderContainer;
   constructor(sliderRef, elementsList, prevBtn, nextBtn, sliderContainer) {
     this.#sliderRef = sliderRef;
     this.elementsList = elementsList;
     this.prevBtn = prevBtn;
     this.nextBtn = nextBtn;
-    this.sliderContainer = sliderContainer;    
+    this.sliderContainer = sliderContainer;
+
+    this.#gapSliderContainer = parseInt(getComputedStyle(sliderContainer).columnGap);  
     this.initBtnsFunction();
     this.initTouchFunction();
-    this.update();
+    this.update();    
   }
 
   initBtnsFunction() {
@@ -58,7 +61,7 @@ class SliderInterface {
   updateOffsetList() {
     for (let i = 0; i < this.elementsList.length; i += 1) {
       const offset =
-        this.#sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + 18);        
+        this.#sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + this.#gapSliderContainer);        
       this.elementsList[i].style.transform = `translateX(${offset}px)`;
     }
   }
