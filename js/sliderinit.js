@@ -9,24 +9,21 @@ const refs = {
   nextBtn: document.getElementById("nextBtn"),
 };
 
-window.addEventListener("resize", () => {
-  slidesPerPage = calculateSlidesPerPage();
-  slider.slidesPerPage = slidesPerPage;
-  slider.setSlidesProperty();
-});
-
 let slidesPerPage = calculateSlidesPerPage();
-let slider = new Slider(slidesPerPage, refs.slidesList.length);
-
-const sliderInterface = new SliderInterface(
+const sliderRef = new Slider(slidesPerPage, refs.slidesList.length);
+const sliderInterface = new SliderInterface(sliderRef,
   refs.slidesList,
   refs.prevBtn,
   refs.nextBtn
 );
 
-slider.addObserver(sliderInterface);
-sliderInterface.initBtnsFunction(slider);
-slider.setSlidesProperty();
+window.addEventListener("resize", () => {
+  slidesPerPage = calculateSlidesPerPage();
+  sliderRef.slidesPerPage = slidesPerPage;
+  sliderRef.setSlidesProperty();
+  sliderInterface.update();
+});
+
 
 function calculateSlidesPerPage() {
   let res = 1;

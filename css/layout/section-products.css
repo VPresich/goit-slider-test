@@ -1,18 +1,18 @@
 .products-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;  
   justify-content: center;
   gap: 32px;
 }
 
-.products-list-item {
+.products-list-item { 
   flex-basis: 100%;
   text-align: center;
-  padding: 32px 52px 32px 53px;
+  padding: 32px 51px 32px 51px;
   border-radius: 15px;
   border: 1px solid rgba(17, 17, 17, 0.1);
   background-color: var(--secondary-color);
-  transition: transform 500ms ease-out;
+  transition: transform 550ms ease-out;
 }
 
 .products-list-img {
@@ -56,7 +56,7 @@
   }
 
   .products-list-item {
-    flex-basis: calc((100% - 36px) / 2);
+    flex-basis: calc((100% - 18px) / 2);
   }
 
   .products-list-ingredient {

@@ -1,5 +1,4 @@
-class Slider {
-  #observers = [];
+class Slider { 
   #currentSlide = 0;
   #slidesPerPage = 1;
   #slidesNumber = 0;
@@ -10,18 +9,11 @@ class Slider {
       display: false,
       offset: 0,
     }));
-  }
+    this.setSlidesProperty();
+  }  
 
-  addObserver(observer) {
-    this.#observers.push(observer);
-  }
-
-  notifyObservers() {
-    this.#observers.forEach((observer) => observer.update(this));
-  }
-
-  set slidesPerPage(newslidesPerPage) {
-    this.#slidesPerPage = newslidesPerPage;
+  set slidesPerPage(newSlidesPerPage) {
+    this.#slidesPerPage = newSlidesPerPage;
   }
 
   get slidesPerPage() {
@@ -38,8 +30,7 @@ class Slider {
       } else {
         slide.display = false;
       }
-    });
-    this.notifyObservers();
+    });    
   }
 
   onPrevSlide() {
@@ -48,8 +39,7 @@ class Slider {
       this.slides.forEach((slide, index) => {
         slide.offset += 1;
       });
-    }
-    console.log(this.slides);
+    }   
     this.setSlidesProperty();
   }
 
@@ -59,8 +49,7 @@ class Slider {
       this.slides.forEach((slide, index) => {
         slide.offset -= 1;
       });
-    }
-    console.log(this.slides);
+    }  
     this.setSlidesProperty();
   }
 
@@ -81,7 +70,7 @@ class Slider {
     return this.slides[index].display;
   }
 
-  offsetSlide(index) {
+  getOffsetSlide(index) {
     return this.slides[index].offset;
   }
 }

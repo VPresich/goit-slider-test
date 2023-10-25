@@ -1,37 +1,44 @@
-class SliderInterface {
-  constructor(elementsList, prevBtn, nextBtn) {
+class SliderInterface {  
+
+  constructor(sliderRef, elementsList, prevBtn, nextBtn) {
     this.prevBtn = prevBtn;
     this.nextBtn = nextBtn;
     this.elementsList = elementsList;
+    this.sliderRef = sliderRef;
+    this.initBtnsFunction();
+    this.update();
   }
 
-  initBtnsFunction(slider) {
+  initBtnsFunction() {
     this.prevBtn.addEventListener("click", () => {
-      slider.onPrevSlide();
+      this.sliderRef.onPrevSlide();
+      this.update();
     });
 
     this.nextBtn.addEventListener("click", () => {
-      slider.onNextSlide();
+      this.sliderRef.onNextSlide();
+      this.update();
     });
   }
 
-  update(slider) {
-    this.updateOffsetList(slider);
+  update() {
+    this.updateOffsetList();
     // this.updateDisplayList(slider);
-    this.updateButtons(slider);
+    this.updateButtons();
   }
 
-  updateOffsetList(slider) {
+  updateOffsetList() {
     for (let i = 0; i < this.elementsList.length; i += 1) {
       const offset =
-        slider.offsetSlide(i) * (this.elementsList[i].offsetWidth + 18);
+        this.sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + 18);
+        console.log("offset: ", "i =",  i, offset);
       this.elementsList[i].style.transform = `translateX(${offset}px)`;
     }
   }
 
-  updateDisplayList(slider) {
+  updateDisplayList() {
     for (let i = 0; i < this.elementsList.length; i += 1) {
-      if (slider.isDisplaySlide(i)) {
+      if (this.sliderRef.isDisplaySlide(i)) {
         this.elementsList[i].style.display = "block";
       } else {
         this.elementsList[i].style.display = "none";
@@ -39,9 +46,9 @@ class SliderInterface {
     }
   }
 
-  updateButtons(slider) {
-    this.prevBtn.disabled = slider.isExistPrev();
-    this.nextBtn.disabled = slider.isExistNext();
+  updateButtons() {
+    this.prevBtn.disabled = this.sliderRef.isExistPrev();
+    this.nextBtn.disabled = this.sliderRef.isExistNext();
   }
 }
 
