@@ -32,7 +32,7 @@ class SliderInterface {
       startX = event.touches[0].clientX;
     });
   
-    this.sliderContainer.addEventListener("touchmove", (event) => {
+    this.sliderContainer.addEventListener("touchend", (event) => {
       const currentX = event.touches[0].clientX;
       const deltaX = startX - currentX;
   
