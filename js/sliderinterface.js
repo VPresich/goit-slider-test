@@ -39,10 +39,12 @@ class SliderInterface {
       if (deltaX > SliderInterface.touchThreshold) { 
         this.#sliderRef.onNextSlide();
         this.update();
+        startX = currentX;
 
       } else if (deltaX < -SliderInterface.touchThreshold) { 
         this.#sliderRef.onPrevSlide();
         this.update();
+        startX = currentX;
       }
     });
   }
