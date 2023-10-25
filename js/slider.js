@@ -2,10 +2,11 @@ class Slider {
   #currentSlide = 0;
   #slidesPerPage = 1;
   #slidesNumber = 0;
+  #slides = [{}];
   constructor(slidesPerPage, slidesNumber = 0) {
     this.#slidesPerPage = slidesPerPage;
     this.#slidesNumber = slidesNumber;
-    this.slides = Array.from({ length: slidesNumber }, () => ({
+    this.#slides = Array.from({ length: slidesNumber }, () => ({
       display: false,
       offset: 0,
     }));
@@ -21,7 +22,7 @@ class Slider {
   }
 
   setSlidesProperty() {
-    this.slides.forEach((slide, index) => {
+    this.#slides.forEach((slide, index) => {
       if (
         index >= this.#currentSlide &&
         index < this.#currentSlide + this.#slidesPerPage
@@ -36,7 +37,7 @@ class Slider {
   onPrevSlide() {
     if (this.#currentSlide > 0) {
       this.#currentSlide--;
-      this.slides.forEach((slide, index) => {
+      this.#slides.forEach((slide, index) => {
         slide.offset += 1;
       });
     }   
@@ -46,7 +47,7 @@ class Slider {
   onNextSlide() {
     if (this.#currentSlide < this.#slidesNumber - this.#slidesPerPage) {
       this.#currentSlide += 1;
-      this.slides.forEach((slide, index) => {
+      this.#slides.forEach((slide, index) => {
         slide.offset -= 1;
       });
     }  
@@ -67,11 +68,11 @@ class Slider {
   }
 
   isDisplaySlide(index) {
-    return this.slides[index].display;
+    return this.#slides[index].display;
   }
 
   getOffsetSlide(index) {
-    return this.slides[index].offset;
+    return this.#slides[index].offset;
   }
 }
 
