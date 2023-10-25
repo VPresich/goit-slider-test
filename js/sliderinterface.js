@@ -1,6 +1,6 @@
 class SliderInterface {
 
-  static touchThreshold = 50;
+  static touchThreshold = 75;
   #sliderRef;
   constructor(sliderRef, elementsList, prevBtn, nextBtn, sliderContainer) {
     this.#sliderRef = sliderRef;
@@ -38,13 +38,13 @@ class SliderInterface {
   
       if (deltaX > SliderInterface.touchThreshold) { 
         this.#sliderRef.onNextSlide();
-        this.update();
         startX = currentX;
-
+        this.update();
+       
       } else if (deltaX < -SliderInterface.touchThreshold) { 
         this.#sliderRef.onPrevSlide();
-        this.update();
         startX = currentX;
+        this.update();       
       }
     });
   }
