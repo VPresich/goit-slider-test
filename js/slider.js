@@ -8,6 +8,7 @@ class Slider {
     this.#slidesNumber = slidesNumber;
     this.slides = Array.from({ length: slidesNumber }, () => ({
       display: false,
+      offset: 0,
     }));
   }
 
@@ -15,12 +16,16 @@ class Slider {
     this.#observers.push(observer);
   }
 
-  setSlidesPerPage(newslidesPerPage) {
+  notifyObservers() {
+    this.#observers.forEach((observer) => observer.update(this));
+  }
+
+  set slidesPerPage(newslidesPerPage) {
     this.#slidesPerPage = newslidesPerPage;
   }
 
-  notifyObservers() {
-    this.#observers.forEach((observer) => observer.update(this));
+  get slidesPerPage() {
+    return this.#slidesPerPage;
   }
 
   setSlidesProperty() {
@@ -40,14 +45,22 @@ class Slider {
   onPrevSlide() {
     if (this.#currentSlide > 0) {
       this.#currentSlide--;
+      this.slides.forEach((slide, index) => {
+        slide.offset += 1;
+      });
     }
+    console.log(this.slides);
     this.setSlidesProperty();
   }
 
   onNextSlide() {
     if (this.#currentSlide < this.#slidesNumber - this.#slidesPerPage) {
       this.#currentSlide += 1;
+      this.slides.forEach((slide, index) => {
+        slide.offset -= 1;
+      });
     }
+    console.log(this.slides);
     this.setSlidesProperty();
   }
 
@@ -66,6 +79,10 @@ class Slider {
 
   isDisplaySlide(index) {
     return this.slides[index].display;
+  }
+
+  offsetSlide(index) {
+    return this.slides[index].offset;
   }
 }
 

@@ -11,7 +11,7 @@ const refs = {
 
 window.addEventListener("resize", () => {
   slidesPerPage = calculateSlidesPerPage();
-  slider.setSlidesPerPage(slidesPerPage);
+  slider.slidesPerPage = slidesPerPage;
   slider.setSlidesProperty();
 });
 

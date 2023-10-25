@@ -16,11 +16,21 @@ class SliderInterface {
   }
 
   update(slider) {
-    this.updateList(slider);
+    this.updateOffsetList(slider);
+    // this.updateDisplayList(slider);
     this.updateButtons(slider);
   }
 
-  updateList(slider) {
+  updateOffsetList(slider) {
+    for (let i = 0; i < this.elementsList.length; i += 1) {
+      const offset =
+        slider.offsetSlide(i) * (this.elementsList[i].offsetWidth + 18);
+      console.log(offset, this.elementsList[i].offsetWidth);
+      this.elementsList[i].style.transform = `translateX(${offset}px)`;
+    }
+  }
+
+  updateDisplayList(slider) {
     for (let i = 0; i < this.elementsList.length; i += 1) {
       if (slider.isDisplaySlide(i)) {
         this.elementsList[i].style.display = "block";

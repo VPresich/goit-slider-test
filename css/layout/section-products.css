@@ -12,6 +12,7 @@
   border-radius: 15px;
   border: 1px solid rgba(17, 17, 17, 0.1);
   background-color: var(--secondary-color);
+  transition: transform 500ms ease-out;
 }
 
 .products-list-img {
