@@ -2,7 +2,7 @@ class SliderInterface {
 
   static touchThreshold = 75;
   #sliderRef;
-  // #gapSliderContainer;
+  #gapSliderContainer;
   constructor(sliderRef, elementsList, prevBtn, nextBtn, sliderContainer) {
     this.#sliderRef = sliderRef;
     this.elementsList = elementsList;
@@ -10,7 +10,7 @@ class SliderInterface {
     this.nextBtn = nextBtn;
     this.sliderContainer = sliderContainer;
 
-    // this.#gapSliderContainer = parseInt(getComputedStyle(sliderContainer).columnGap);   
+    this.#gapSliderContainer = parseInt(getComputedStyle(sliderContainer).columnGap);   
     this.initBtnsFunction();
     this.initTouchFunction();
     this.update();    
