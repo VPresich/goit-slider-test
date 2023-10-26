@@ -61,7 +61,7 @@ class SliderInterface {
   updateOffsetList() {
     for (let i = 0; i < this.elementsList.length; i += 1) {
       const offset =
-        this.#sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + 18);        
+        this.#sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + this.#gapSliderContainer);        
       this.elementsList[i].style.transform = `translateX(${offset}px)`;
     }
   }
