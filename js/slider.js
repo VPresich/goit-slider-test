@@ -2,7 +2,7 @@ class Slider {
   #currentSlide = 0;
   #slidesPerPage = 1;
   #slidesNumber = 0;
-  #slides = [{}];
+  #slides;
   constructor(slidesPerPage, slidesNumber = 0) {
     this.#slidesPerPage = slidesPerPage;
     this.#slidesNumber = slidesNumber;
