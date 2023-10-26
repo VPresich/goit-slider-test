@@ -10,7 +10,8 @@ class SliderInterface {
     this.nextBtn = nextBtn;
     this.sliderContainer = sliderContainer;
 
-    this.#gapSliderContainer = parseInt(getComputedStyle(sliderContainer).columnGap);  
+    this.#gapSliderContainer = parseInt(getComputedStyle(sliderContainer).columnGap);
+    console.log(this.#gapSliderContainer);  
     this.initBtnsFunction();
     this.initTouchFunction();
     this.update();    
@@ -61,7 +62,7 @@ class SliderInterface {
   updateOffsetList() {
     for (let i = 0; i < this.elementsList.length; i += 1) {
       const offset =
-        this.#sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + this.#gapSliderContainer);        
+        this.#sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + 18);        
       this.elementsList[i].style.transform = `translateX(${offset}px)`;
     }
   }
