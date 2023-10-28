@@ -21,6 +21,14 @@ class Slider {
     return this.#slidesPerPage;
   }
 
+  get currentSlide(){
+    return this.#currentSlide;
+  }
+
+  set currentSlide(newCurrentSlide){
+    return this.#currentSlide = newCurrentSlide;
+  }
+
   setSlidesProperty() {
     this.#slides.forEach((slide, index) => {
       if (
@@ -74,6 +82,7 @@ class Slider {
   getOffsetSlide(index) {
     return this.#slides[index].offset;
   }
+
 }
 
 export default Slider;

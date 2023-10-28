@@ -3,16 +3,17 @@ class SliderInterface {
   static touchThreshold = 75;
   #sliderRef;
   #gapSliderContainer;
-  constructor(sliderRef, elementsList, prevBtn, nextBtn, sliderContainer) {
+  constructor(sliderRef, elementsList, prevBtn, nextBtn, sliderContainer, sliderDots) {
     this.#sliderRef = sliderRef;
     this.elementsList = elementsList;
     this.prevBtn = prevBtn;
     this.nextBtn = nextBtn;
     this.sliderContainer = sliderContainer;
-
+    this.sliderDots = sliderDots,
     this.#gapSliderContainer = parseInt(getComputedStyle(sliderContainer).columnGap);   
     this.initBtnsFunction();
     this.initTouchFunction();
+    this.createDots();
     this.update();    
   }
 
@@ -52,10 +53,23 @@ class SliderInterface {
     });
   }
 
+  createDots(){
+    for (let i = 0; i < this.elementsList.length; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'slider-dot';
+      dot.addEventListener('click', () => {
+       
+        // goToSlide(i);
+      });
+      this.sliderDots.appendChild(dot);
+    }
+  }
+
   update() {
     this.updateOffsetList();
     // this.updateDisplayList(slider);
     this.updateButtons();
+    this.updateDisplayDots();
   }
 
   updateOffsetList() {
@@ -79,6 +93,18 @@ class SliderInterface {
   updateButtons() {
     this.prevBtn.disabled = this.#sliderRef.isExistPrev();
     this.nextBtn.disabled = this.#sliderRef.isExistNext();
+  }
+
+  updateDisplayDots() {     
+    const children = this.sliderDots.children;
+    for (let i = 0; i < children.length; i+=1) {
+      if ( i === this.#sliderRef.currentSlide){       
+        children[i].classList.add('active-dot');
+      }
+      else{       
+        children[i].classList.remove('active-dot');
+      };
+    }
   }
 }
 

@@ -57,4 +57,21 @@
   color: rgba(17, 17, 17, 0.3);
 }
 
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.active-dot {
+  background-color: var(--accent-color);
+}

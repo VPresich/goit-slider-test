@@ -6,6 +6,7 @@ const refs = {
   slidesList: document.querySelector(".slides-container").querySelectorAll("li"),
   prevBtn: document.getElementById("prevBtn"),
   nextBtn: document.getElementById("nextBtn"),  
+  sliderDots: document.querySelector('.slider-dots'),
 };
 
 let slidesPerPage = calculateSlidesPerPage();
@@ -14,7 +15,8 @@ const sliderInterface = new SliderInterface(sliderRef,
   refs.slidesList,
   refs.prevBtn,
   refs.nextBtn,
-  refs.sliderContainer
+  refs.sliderContainer,
+  refs.sliderDots
 );
 
 window.addEventListener("resize", () => {
