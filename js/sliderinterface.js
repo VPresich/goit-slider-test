@@ -1,20 +1,28 @@
 class SliderInterface {
-
   static touchThreshold = 75;
   #sliderRef;
   #gapSliderContainer;
-  constructor(sliderRef, elementsList, prevBtn, nextBtn, sliderContainer, sliderDots) {
+  constructor(
+    sliderRef,
+    elementsList,
+    prevBtn,
+    nextBtn,
+    sliderContainer,
+    sliderDots
+  ) {
     this.#sliderRef = sliderRef;
     this.elementsList = elementsList;
     this.prevBtn = prevBtn;
     this.nextBtn = nextBtn;
     this.sliderContainer = sliderContainer;
-    this.sliderDots = sliderDots,
-    this.#gapSliderContainer = parseInt(getComputedStyle(sliderContainer).columnGap);   
+    (this.sliderDots = sliderDots),
+      (this.#gapSliderContainer = parseInt(
+        getComputedStyle(sliderContainer).columnGap
+      ));
     this.initBtnsFunction();
     this.initTouchFunction();
     this.createDots();
-    this.update();    
+    this.update();
   }
 
   initBtnsFunction() {
@@ -29,58 +37,59 @@ class SliderInterface {
     });
   }
 
-  initTouchFunction() {    
+  initTouchFunction() {
     let startX = 0;
-  
+
     this.sliderContainer.addEventListener("touchstart", (event) => {
       startX = event.touches[0].clientX;
     });
-  
+
     this.sliderContainer.addEventListener("touchmove", (event) => {
       const currentX = event.touches[0].clientX;
       const deltaX = startX - currentX;
-  
-      if (deltaX > SliderInterface.touchThreshold) { 
+
+      if (deltaX > SliderInterface.touchThreshold) {
         this.#sliderRef.onNextSlide();
         startX = currentX;
         this.update();
-       
-      } else if (deltaX < -SliderInterface.touchThreshold) { 
+      } else if (deltaX < -SliderInterface.touchThreshold) {
         this.#sliderRef.onPrevSlide();
         startX = currentX;
-        this.update();       
+        this.update();
       }
     });
   }
 
-  createDots(){
-    for (let i = 0; i < this.elementsList.length; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'slider-dot';
-      dot.addEventListener('click', () => {
-       
-        // goToSlide(i);
+  createDots() {
+    for (let ind = 0; ind < this.elementsList.length; ind += 1) {
+      const dot = document.createElement("div");
+      dot.className = "slider-dot";
+      dot.addEventListener("click", () => {
+        this.#sliderRef.goToSlide(ind);
+        this.update();
       });
       this.sliderDots.appendChild(dot);
     }
   }
 
-  update() {
+  update() {   
     this.updateOffsetList();
     // this.updateDisplayList(slider);
     this.updateButtons();
     this.updateDisplayDots();
   }
 
-  updateOffsetList() {
+  updateOffsetList() {   
     for (let i = 0; i < this.elementsList.length; i += 1) {
       const offset =
-        this.#sliderRef.getOffsetSlide(i) * (this.elementsList[i].offsetWidth + this.#gapSliderContainer);        
+        this.#sliderRef.getOffsetSlide(i) *
+        (this.elementsList[i].offsetWidth + this.#gapSliderContainer);
+      console.log(offset);
       this.elementsList[i].style.transform = `translateX(${offset}px)`;
     }
   }
 
-  updateDisplayList() {
+  updateDisplayList() {   
     for (let i = 0; i < this.elementsList.length; i += 1) {
       if (this.#sliderRef.isDisplaySlide(i)) {
         this.elementsList[i].style.display = "block";
@@ -90,20 +99,19 @@ class SliderInterface {
     }
   }
 
-  updateButtons() {
+  updateButtons() {   
     this.prevBtn.disabled = this.#sliderRef.isExistPrev();
     this.nextBtn.disabled = this.#sliderRef.isExistNext();
   }
 
-  updateDisplayDots() {     
+  updateDisplayDots() {   
     const children = this.sliderDots.children;
-    for (let i = 0; i < children.length; i+=1) {
-      if ( i === this.#sliderRef.currentSlide){       
-        children[i].classList.add('active-dot');
+    for (let i = 0; i < children.length; i += 1) {
+      if (i === this.#sliderRef.currentSlide) {
+        children[i].classList.add("active-dot");
+      } else {
+        children[i].classList.remove("active-dot");
       }
-      else{       
-        children[i].classList.remove('active-dot');
-      };
     }
   }
 }

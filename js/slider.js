@@ -1,4 +1,4 @@
-class Slider { 
+class Slider {
   #currentSlide = 0;
   #slidesPerPage = 1;
   #slidesNumber = 0;
@@ -11,7 +11,7 @@ class Slider {
       offset: 0,
     }));
     this.setSlidesProperty();
-  }  
+  }
 
   set slidesPerPage(newSlidesPerPage) {
     this.#slidesPerPage = newSlidesPerPage;
@@ -21,12 +21,12 @@ class Slider {
     return this.#slidesPerPage;
   }
 
-  get currentSlide(){
+  get currentSlide() {
     return this.#currentSlide;
   }
 
-  set currentSlide(newCurrentSlide){
-    return this.#currentSlide = newCurrentSlide;
+  set currentSlide(newCurrentSlide) {
+    return (this.#currentSlide = newCurrentSlide);
   }
 
   setSlidesProperty() {
@@ -39,7 +39,7 @@ class Slider {
       } else {
         slide.display = false;
       }
-    });    
+    });
   }
 
   onPrevSlide() {
@@ -48,7 +48,7 @@ class Slider {
       this.#slides.forEach((slide, index) => {
         slide.offset += 1;
       });
-    }   
+    }
     this.setSlidesProperty();
   }
 
@@ -58,7 +58,19 @@ class Slider {
       this.#slides.forEach((slide, index) => {
         slide.offset -= 1;
       });
-    }  
+    }
+    this.setSlidesProperty();
+  }
+
+  goToSlide(index) {
+    const delta = index - this.#currentSlide;
+    if (index <= this.#slidesNumber - this.#slidesPerPage) {
+      this.#currentSlide += delta;
+      this.#slides.forEach((slide) => {
+        slide.offset -= delta;
+      });
+    }
+    console.log("goToSlide", index, delta, this.#currentSlide);
     this.setSlidesProperty();
   }
 
@@ -82,7 +94,6 @@ class Slider {
   getOffsetSlide(index) {
     return this.#slides[index].offset;
   }
-
 }
 
 export default Slider;
